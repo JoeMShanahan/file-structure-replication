@@ -11,7 +11,7 @@ pub struct IndexedFile {
 
 impl fmt::Display for IndexedFile {
   fn fmt(&self, f:&mut fmt::Formatter) -> fmt::Result {
-      write!(f, "IndexedFile{{ path: {:#?}, hash: {:#?} }}", self.path, self.hash)
+      write!(f, "IndexedFile{{ path: {:?}, hash: {:?} }}", self.path, self.hash)
   }
 }
 
