@@ -1,12 +1,11 @@
 use std::path::{Path, PathBuf};
-use std::option::Option::{None};
-use sha2::Sha512;
 use std::fmt;
+use crate::hash::{Hash, hash_file};
 
 #[derive(Debug)]
 pub struct IndexedFile {
     path: PathBuf,
-    hash: Sha512
+    hash: Hash
 }
 
 impl fmt::Display for IndexedFile {
@@ -20,8 +19,4 @@ pub fn process_file(file: &Path) -> Option<IndexedFile> {
     let hash = hash_file(file)?;
     let indexed_file = IndexedFile { path, hash };
     return Some(indexed_file);
-}
-
-fn hash_file (_file: &Path) -> Option<Sha512> {
-    return Some(Sha512::default());
 }
