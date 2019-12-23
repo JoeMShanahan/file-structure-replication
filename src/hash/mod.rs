@@ -1,13 +1,13 @@
-use sha2::Sha512;
+use blake2::Blake2b;
 use std::option::Option::{*};
 use std::path::Path;
 
 #[derive(Debug)]
 pub struct Hash {
-    hash: Sha512,
+    hash: Blake2b,
 }   
 
 pub fn hash_file (_file: &Path) -> Option<Hash> {
-    return Some(Hash{hash: Sha512::default()});
+    return Some(Hash{hash: Blake2b::default()});
 }
 
